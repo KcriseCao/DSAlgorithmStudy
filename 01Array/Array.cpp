@@ -123,6 +123,7 @@ int getArraySize(Array *pArr)
     {
         return RET_FAIL;
     }
+
     return pArr->size;
 }
 

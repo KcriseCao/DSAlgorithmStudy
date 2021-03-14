@@ -8,12 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-enum
-{
-    RET_OK = 0,
-    RET_FAIL = 1
-};
+#include "Public.h"
 
 typedef struct _ARRAY
 {
