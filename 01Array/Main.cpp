@@ -25,7 +25,7 @@ void testDynamicArray()
 
     foreachArray(pArr, [](void *data) { int *p = (int *)data;printf("%d ", *p);} );
 
-    destoryArray(pArr,[](void *data) { int *p = (int *)data; free(p); p = NULL;});
+    destoryArray(pArr,[](void *data) { free(data); data = NULL;});
 }
 
 void testStaticArray()
@@ -59,7 +59,7 @@ void testStaticArray()
     }
     foreachStaticArray(pArray, [](void *data){int *p = (int *)data;printf("%d ", *p);});
 
-    ret = destroyStaticArray(pArray, [](void *data){int *p = (int *)data;free(p);p = NULL;});
+    ret = destroyStaticArray(pArray, [](void *data){ free(data); data = NULL;});
     ret == RET_OK? printf("Destroy StaticArray Success\n") : printf("Destroy StaticArray Failed\n");
 }
 
@@ -92,7 +92,7 @@ void merger2OrderArray(Array *pArr1, Array *pArr2, bool(*COMPARE)(void *data1, v
     }
 }
 
-void testMerger()
+void testMerge()
 {
     Array *pArr1 = initArray(10);
     Array *pArr2 = initArray(20);
@@ -131,7 +131,7 @@ void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n)
     }
 }
 
-int main(int argc, char **argv)
+int main01(int argc, char **argv)
 {
     //测试动态数组
     //testDynamicArray();
@@ -139,7 +139,7 @@ int main(int argc, char **argv)
     //测试静态数组（定长）
     //testStaticArray();
 
-    testMerger();
+    testMerge();
 
     return 0;
 }
